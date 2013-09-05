@@ -1,5 +1,5 @@
 //
-//  FLUnitTestSelfTests.m
+//  FLTestSelfTests.m
 //  FishLamp
 //
 //  Created by Mike Fullerton on 10/25/12.
@@ -7,13 +7,12 @@
 //  The FishLamp Framework is released under the MIT License: http://fishlamp.com/license 
 //
 
-#import "FLUnitTestSelfTests.h"
+#import "FLSanityCheckTests.h"
 
+@implementation FLSanityCheckTests
 
-@implementation FLUnitTestSanityCheck
-
-+ (FLUnitTestGroup*) unitTestGroup {
-    return [self sanityCheckTestGroup];
++ (FLTestGroup*) testGroup {
+    return [FLTestGroup sanityCheckTestGroup];
 }
 
 - (void) firstTest {

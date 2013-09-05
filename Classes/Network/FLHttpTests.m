@@ -13,17 +13,18 @@
 
 #import "FLHttpResponse.h"
 #import "FLHttpRequestBody.h"
+#import "FLDispatchQueue.h"
 
 @implementation FLHttpTests
 
-+ (FLUnitTestGroup*) unitTestGroup {
-    return [self frameworkTestGroup];
++ (FLTestGroup*) testGroup {
+    return [FLTestGroup frameworkTestGroup];
 }
 
 - (void) testConnectionToGoogle {
     FLHttpRequest *request = [FLHttpRequest httpRequestWithURL:[NSURL URLWithString:@"http://www.google.com"] httpMethod:@"GET"];
 
-    id result = [request runSynchronously];
+    id result = [FLBackgroundQueue runSynchronously:request];
     FLThrowIfError(result);
 
     FLHttpResponse* response = result;
